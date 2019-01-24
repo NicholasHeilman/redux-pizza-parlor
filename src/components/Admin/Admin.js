@@ -27,6 +27,20 @@ class Admins extends Component {
     };
     
 
+    // moreDetails = ()=>{
+    //     axios.get('/api/order')
+    //         .then(response => {
+    //             console.log('In GET Response', response);
+    //            this.props.history.push('order')
+    //            const action = 
+    //            this.props.dispatch(action);
+    //         }).catch((error) => {
+    //             console.log('GET error', error);
+    //         })
+
+    // }
+    
+
     render() {
 
         let customerOrderList = this.state.customerOrders.map(order =>{
@@ -38,8 +52,9 @@ class Admins extends Component {
                         <td>{order.total}</td>
                         <td>{order.type}</td>
                         <td>{order.time}</td>
+                        <td><button onClick={this.moreDetails}>More Details</button></td>
                     </tr>
-                
+                    
             )
         })
         
@@ -52,6 +67,7 @@ class Admins extends Component {
                     <th>Total</th>
                     <th>Type</th>
                     <th>Time</th>
+                    <th>More Details</th>
                 </tr>
                 </thead>
             <tbody>

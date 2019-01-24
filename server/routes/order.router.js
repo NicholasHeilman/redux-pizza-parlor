@@ -13,6 +13,18 @@ router.get('/', (req, res) => {
     });
 })
 
+router.get('/order', (req, res) => {
+    // Find all orders and return them
+    pool.query('SELECT * FROM "orders";').then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('Error GET /api/order', error);
+        res.sendStatus(500);
+    });
+})
+
+
+
 // POST a new order
 router.post('/', async (req, res) => {
     const client = await pool.connect();
