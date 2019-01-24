@@ -49,9 +49,10 @@ class CustomerInfo extends Component{
     ///////////////////////////////////////End state change handlers
 
     setCustomer = () => {
-        // const action = { type: 'SET_PIZZA',
-        //                  payload: {thing1: '', price: 3}};
-        // this.props.dispatch(action);
+        const action = { type: 'CUSTOMER_INFO',
+                         payload: this.state,
+                        };
+        this.props.dispatch(action);
         this.props.history.push('/check-out');
     }
 
