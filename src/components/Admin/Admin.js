@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './../App/App.css';
 
 class Admins extends Component {
     constructor(props){
@@ -43,7 +44,8 @@ class Admins extends Component {
         })
         
         return (
-            <table>
+            <div className="container">
+            <table className="adminTable">
                 <thead>
                 <tr>
                     <th>Name</th>
@@ -56,6 +58,7 @@ class Admins extends Component {
                 {customerOrderList}
             </tbody>
             </table>
+            </div>
         )
     }
 }
