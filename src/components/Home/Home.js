@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import axios from 'axios';
 import HomeList from './HomeList';
+import './HomeListItem.css';
 
 
 class Home extends Component{
@@ -10,14 +11,20 @@ class Home extends Component{
     //     this.refreshPizzaPage();
     // }
 
-    
+    nextPage = () => {
+        console.log('button clcked');
+        this.props.history.push('/customer-info')
+        
+    }
 
     render(){
         return(
             <div>
                 <h1>Home</h1>
                 <HomeList />
-                <button></button>
+                <div className="home-container">
+                <button onClick={this.nextPage}>Next</button>
+                </div>
             </div>
         )
     }
