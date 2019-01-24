@@ -41,5 +41,4 @@ const storeInstance = createStore(
     applyMiddleware(logger),
 );
 
-ReactDOM.render(<Provider store ={storeInstance}>< App/></Provider>, document.getElementById('root'));
-// registerServiceWorker();
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
