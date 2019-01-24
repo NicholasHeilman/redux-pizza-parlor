@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './../App/App.css';
 import { connect } from 'react-redux';
 import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
+import CheckOutItem from '../CheckOutItem/CheckOutItem.js';
 
 
 class CheckOut extends Component {
@@ -27,7 +28,11 @@ class CheckOut extends Component {
                         </tr>
                     </thead>
                     <tbody>
-
+                        {this.props.reduxStore.pizzaReducer.map((pizza, i) => {
+                        return (
+                            <CheckOutItem key={i} pizza={pizza} />
+                        );
+                        })} 
                     </tbody>
                 </table>
                 <br />
