@@ -8,7 +8,7 @@ class CustomerInfo extends Component{
             address: '',
             city: '',
             zip: '',
-            type: 'pick_up',
+            type: 'Pickup',
         }
 
     }
@@ -37,15 +37,21 @@ class CustomerInfo extends Component{
     }
     handleDeliveryClick = () => {
         this.setState({
-            type: 'delivery',
+            type: 'Delivery',
         });
     }
     handlePickUpClick = () => {
         this.setState({
-            type: 'pick_up',
+            type: 'Pickup',
         });
     }
     ///////////////////////////////////////End state change handlers
+
+    setCustomer = (event) => {
+        event.preventDefault();
+
+        this.props.history.push('/check-out');
+    }
 
 render(){
     return(
@@ -63,7 +69,10 @@ render(){
 
             <button onClick={this.handleDeliveryClick}>Delivery</button>
             <button onClick={this.handlePickUpClick}>Pick Up</button>
+            <p>Order for: {this.state.type}</p>
 
+
+            <button onClick={this.setCustomer}>Next</button>
         </div>
     )
 }
