@@ -7,16 +7,31 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import { stat } from 'fs';
 
 //Pizza Reducer
+
+const customerInfo = [{
+    name: '',
+    address: '',
+    city: '',
+    zip: '',
+    type: ''
+}]
+   
+
+
 const pizzaReducer = (state = [], action) => {
 
     return state;
 }
 
 //Customer Reducer
-const customerReducer = (state = {}, action) => {
-
+const customerReducer = (state = customerInfo, action) => {
+    if(action.type === 'CUSTOMER_INFO'){
+        return [...state, action.payload];
+    }
+    
     return state;
 }
 
