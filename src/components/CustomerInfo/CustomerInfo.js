@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class CustomerInfo extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            name: '',
+            streetAddress: '',
+            
+        }
+    }
 render(){
     return(
         <div>
