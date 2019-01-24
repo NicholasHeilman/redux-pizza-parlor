@@ -10,14 +10,17 @@ class CheckOut extends Component {
 
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <h1>Step 3: Check Out</h1>
                 <table>
-                    <tbody>
-                        <thead>
+                    <thead>
+                        <tr>
                             <th>Name</th>
                             <th>Cost</th>
-                        </thead>
+                        </tr>
+                    </thead>
+                    <tbody>
+
                     </tbody>
                 </table>
                 <br />
