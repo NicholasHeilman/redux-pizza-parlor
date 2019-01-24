@@ -2,16 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+// import registerServiceWorker from './registerServiceWorker';
+// import {connect} from 'react-redux';
 
 //import Redux
-import {
-    createStore,
-    combineReducers,
-    applyMiddleware
-} from 'redux';
-import {
-    Provider
-} from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 //Pizza Reducer
@@ -46,3 +42,4 @@ const storeInstance = createStore(
 );
 
 ReactDOM.render(<Provider store ={storeInstance}>< App/></Provider>, document.getElementById('root'));
+// registerServiceWorker();
