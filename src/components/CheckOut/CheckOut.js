@@ -1,13 +1,42 @@
 import React, { Component } from 'react';
 import './../App/App.css';
 import { connect } from 'react-redux';
+// import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
+import axios from 'axios';
 import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
 import CheckOutItem from '../CheckOutItem/CheckOutItem.js';
 
 
 class CheckOut extends Component {
 
+
+    postPizza = () => {
+        const info =
+        {
+            customer_name: this.props.reduxStore.customerReducer.name,
+            street_address: this.props.reduxStore.customerReducer.address,
+            city: this.props.reduxStore.customerReducer.city,
+            zip: this.props.reduxStore.customerReducer.zip,
+            type: this.props.reduxStore.customerReducer.type,
+            total: this.props.reduxStore.totalReducer.total,
+            pizzas: this.props.reduxStore.pizzaReducer.pizzas
+        }
+        axios({
+            method: 'POST',
+            url: '/api/pizza',
+            data: info
+        }).then((response) => {
+            console.log(response);
+
+        }).catch((error) => {
+            // console.log('error in GET, ', error);
+
+            alert('Error in POST: ', error)
+        });
+    }
+
     setCheckout = () => {
+        this.postPizza();
         this.props.history.push('/');
     }
 
@@ -35,6 +64,12 @@ class CheckOut extends Component {
                         })} 
                     </tbody>
                 </table>
+                <div>
+                    <h3 id="order-total-checkout-pg">Total: {this.props.reduxStore.totalReducer}</h3>
+                </div>
+                <br />
+                <br />
+                <br />
                 <br />
                 <div>
                     <button id="checkout-next" onClick={this.setCheckout}>Checkout</button>

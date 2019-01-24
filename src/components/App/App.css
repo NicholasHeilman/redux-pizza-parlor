@@ -33,7 +33,7 @@ table, th, td {
 
 .container {
   margin-right: 400px;
-  margin-left: 380px;
+  margin-left: 350px;
 }
 
 th, td {
@@ -46,4 +46,8 @@ th, td {
 
 .adminTable{
   
+}
+
+#order-total-checkout-pg {
+  float: right;
 }
