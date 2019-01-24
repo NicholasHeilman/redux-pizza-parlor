@@ -21,3 +21,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+table {
+  border-collapse: collapse;
+  width: 800px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.container {
+  margin-right: 400px;
+  margin-left: 380px;
+}
+
+th, td {
+  width: 400px;;
+}
+
+#checkout-next {
+  float: right;
+}

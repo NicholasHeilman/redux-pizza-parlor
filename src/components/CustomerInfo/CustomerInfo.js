@@ -47,9 +47,7 @@ class CustomerInfo extends Component{
     }
     ///////////////////////////////////////End state change handlers
 
-    setCustomer = (event) => {
-        event.preventDefault();
-
+    setCustomer = () => {
         this.props.history.push('/check-out');
     }
 
