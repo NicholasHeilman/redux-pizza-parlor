@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 
 //Pizza Reducer
 const pizzaReducer = (state = [], action) => {
-
+    
     return state;
 }
 
