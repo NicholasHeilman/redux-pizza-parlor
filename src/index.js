@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
+// import registerServiceWorker from './registerServiceWorker';
+// import {connect} from 'react-redux';
 
 //import Redux
 import { createStore, combineReducers, applyMiddleware } from 'redux';
@@ -23,8 +25,11 @@ const customerInfo =
 
 
 const pizzaReducer = (state = [], action) => {
-
-    return state;
+    if (action.type === 'SET_PIZZA'){
+        const pizzaToAdd = action.payload
+        return [...state, pizzaToAdd]
+    }
+        return state;
 }
 
 //Customer Reducer
