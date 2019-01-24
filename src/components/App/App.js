@@ -13,24 +13,22 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Prime Pizza</h1>
+          <h1 className="App-title">Spicy Pizza Parlor</h1>
         </header>
         <Router>
-         <div>
+          <div>
 
             <Route exact path="/" component={Home} />
-            <Route exact path="/customer-info" component={CustomerInfo}/>
-            <Route exact path="/check-out" component={CheckOut}/>
-            <Route exact path="/admin" component={Admin}/>
+            <Route exact path="/customer-info" component={CustomerInfo} />
+            <Route exact path="/check-out" component={CheckOut} />
+            <Route exact path="/admin" component={Admin} />
 
-         </div>
-           
-             
-        
+          </div>
+
+
+
         </Router>
-        <br/>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
+        <br />
       </div>
     );
   }
