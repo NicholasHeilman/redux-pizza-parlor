@@ -9,8 +9,21 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import { stat } from 'fs';
 
 //Pizza Reducer
+
+const customerInfo = 
+    {
+    name: 'John',
+    address: '123 FAke St.',
+    city: 'Minneapolis',
+    zip: '55403',
+    type: 'Dine In'}
+
+   
+
+
 const pizzaReducer = (state = [], action) => {
     if (action.type === 'SET_PIZZA'){
         const pizzaToAdd = action.payload
@@ -21,12 +34,17 @@ const pizzaReducer = (state = [], action) => {
 
 //Customer Reducer
 const customerReducer = (state = {}, action) => {
-
+    if(action.type === 'CUSTOMER_INFO'){
+        return action.payload;
+    }
     return state;
 }
 
 //Total Cost Reducer
 const totalReducer = (state = 0, action) => {
+    if(action.type === 'SET_PIZZA'){
+        return (state + action.payload.price);
+    }
 
     return state;
 }
