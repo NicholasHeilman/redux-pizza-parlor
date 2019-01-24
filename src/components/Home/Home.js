@@ -17,6 +17,7 @@ class Home extends Component{
             <div>
                 <h1>Home</h1>
                 <HomeList />
+                <button></button>
             </div>
         )
     }

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeListItem.css'
 import PropTypes from 'prop-types';
-import {
-    withStyles
-} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -13,8 +11,45 @@ import Typography from '@material-ui/core/Typography';
 // import axios from 'axios';
 
 
-class HomeListItem extends Component{
+class HomeListItem extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            add: true,
+            card: {
+                minWidth: 250,},
+            title: {fontSize: 14,},
+            pos: {marginBottom: 12,},
+        };
+        };
     
+    addOrRemove = () => {
+        if(this.state.add === true){
+            return <button onClick={this.handleAddClick}>Add</button>
+        }
+        else{
+            return <button onClick={this.handleRemoveClick}>Remove</button>
+        }
+    }
+
+    handleAddClick = () => {
+        console.log(this.props.pizza);
+        const action = {type: 'SET_PIZZA', payload: this.props.pizza};
+        this.props.dispatch(action);
+        this.setState({
+            add: false,
+        })
+
+    }
+
+    handleRemoveClick = () => {
+        console.log(this.props.pizza);
+        const action = {type: 'REMOVE_PIZZA', payload: this.props.pizza};
+        this.props.dispatch(action);
+        this.setState({
+            add: true,
+        })
+    }
 
    
     
@@ -22,16 +57,18 @@ class HomeListItem extends Component{
     render(){
         return(
             <div className="container">
-                <Card>
-                <CardContent>
-                <p>{this.props.pizza.name}</p>
-                <p>{this.props.pizza.price}</p>
-                <button>Add</button>
-                </CardContent>
+                <Card className={this.state.card}>
+                    <CardContent>
+                    <p>{this.props.pizza.name}</p>
+                    <p>{this.props.pizza.price}</p>
+                    {this.addOrRemove()}
+                    </CardContent>
                 </Card>
             </div>
         )
     }
 }
-// const mapReduxStoreToProps = (reduxStore) => ( {reduxStore: reduxStore});
-export default connect() (HomeListItem);
+
+
+const mapReduxStoreToProps = (reduxStore) => ( {reduxStore: reduxStore});
+export default connect(mapReduxStoreToProps)(HomeListItem);
