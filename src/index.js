@@ -11,13 +11,14 @@ import { stat } from 'fs';
 
 //Pizza Reducer
 
-const customerInfo = [{
-    name: '',
-    address: '',
-    city: '',
-    zip: '',
-    type: ''
-}]
+const customerInfo = 
+    {
+    name: 'John',
+    address: '123 FAke St.',
+    city: 'Minneapolis',
+    zip: '55403',
+    type: 'Dine In'}
+
    
 
 
@@ -27,11 +28,10 @@ const pizzaReducer = (state = [], action) => {
 }
 
 //Customer Reducer
-const customerReducer = (state = customerInfo, action) => {
+const customerReducer = (state = {}, action) => {
     if(action.type === 'CUSTOMER_INFO'){
         return [...state, action.payload];
     }
-    
     return state;
 }
 
