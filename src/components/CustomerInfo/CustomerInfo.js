@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CustomerInfo extends Component{
     constructor(props){
@@ -48,6 +49,9 @@ class CustomerInfo extends Component{
     ///////////////////////////////////////End state change handlers
 
     setCustomer = () => {
+        // const action = { type: 'SET_PIZZA',
+        //                  payload: {thing1: '', price: 3}};
+        // this.props.dispatch(action);
         this.props.history.push('/check-out');
     }
 
@@ -76,4 +80,4 @@ render(){
 }
 }
 
-export default CustomerInfo;
+export default connect()(CustomerInfo);

@@ -22,6 +22,9 @@ const customerReducer = (state = {}, action) => {
 
 //Total Cost Reducer
 const totalReducer = (state = 0, action) => {
+    if(action.type === 'SET_PIZZA'){
+        return (state + action.payload.price);
+    }
 
     return state;
 }
