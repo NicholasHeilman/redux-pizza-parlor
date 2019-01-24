@@ -53,9 +53,9 @@ class HomeList extends Component{
         return(
             <div>
                 {JSON.stringify(this.pizzas)}
-                <ul>
+                <div className="getPizza">
                     {this.getPizzas()}
-                </ul>
+                </div>
             </div>
         )
     }
