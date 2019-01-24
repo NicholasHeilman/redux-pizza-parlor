@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './../App/App.css';
+import { connect } from 'react-redux';
+import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
 
 
 class CheckOut extends Component {
@@ -12,6 +14,11 @@ class CheckOut extends Component {
         return (
             <div className="container">
                 <h1>Step 3: Check Out</h1>
+                <h3>{this.props.reduxStore.customerReducer.name}</h3>
+                <h3>{this.props.reduxStore.customerReducer.address}</h3>
+                <h3>{this.props.reduxStore.customerReducer.city}</h3>
+                <h3>{this.props.reduxStore.customerReducer.zip}</h3>
+                <h3>{this.props.reduxStore.customerReducer.type}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -32,4 +39,8 @@ class CheckOut extends Component {
     }
 }
 
-export default CheckOut;
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore: reduxStore
+})
+
+export default connect(mapReduxStoreToProps)(CheckOut);
