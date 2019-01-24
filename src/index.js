@@ -9,25 +9,31 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-import { stat } from 'fs';
+// import { stat } from 'fs';
 
 //Pizza Reducer
 
-const customerInfo = 
-    {
-    name: 'John',
-    address: '123 FAke St.',
-    city: 'Minneapolis',
-    zip: '55403',
-    type: 'Dine In'}
+// const customerInfo = 
+//     {
+//     name: 'John',
+//     address: '123 FAke St.',
+//     city: 'Minneapolis',
+//     zip: '55403',
+//     type: 'Dine In'}
 
    
 
 
 const pizzaReducer = (state = [], action) => {
     if (action.type === 'SET_PIZZA'){
+        console.log('in pR', state);
+        
         const pizzaToAdd = action.payload
         return [...state, pizzaToAdd]
+    }else if (action.type === 'REMOVE_PIZZA'){
+        console.log(state);
+        return state=state.filter((pizza) => pizza.id!= action.payload.id)
+        
     }
         return state;
 }
