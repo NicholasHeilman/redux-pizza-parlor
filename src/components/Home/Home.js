@@ -16,9 +16,6 @@ class Home extends Component{
         }   
     }
 
-    // componentDidMount(){
-    //     this.refreshPizzaPage();
-    // }
 
     nextPage = () => {
         console.log('button clcked');

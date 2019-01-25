@@ -12,10 +12,13 @@ class HomeList extends Component{
         }
     }
 
+    // refreshes the DOM
     componentDidMount = () => {
         this.refreshPizza();
     }
 
+
+    // axios GET to get the pizzas from the database to display
     refreshPizza = () => {
     axios({
             method: 'GET',
@@ -35,6 +38,9 @@ class HomeList extends Component{
         });
     }
 
+    
+    // Loops through the pizzas array from the axios GET
+    // and pushes each pizza into a new array to display on DOM
     getPizzas = () => {
             const pizzasForDom = [];
         for (let i = 0; i < this.state.pizzas.length; i++) {
