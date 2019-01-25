@@ -47,6 +47,9 @@ const customerReducer = (state = {}, action) => {
 
 //Total Cost Reducer
 const totalReducer = (state = 0, action) => {
+
+    //Any time a pizza object is added or removed from the pizza Reducer
+    //the total cost is also updated based on the cost of that pizza
     if(action.type === 'SET_PIZZA'){
         return ( Number(state) + Number(action.payload.price) );
     }else if (action.type === 'REMOVE_PIZZA'){
