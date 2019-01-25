@@ -20,17 +20,11 @@ class HomeList extends Component{
     axios({
             method: 'GET',
             url: '/api/pizza'
-        }).then((response) => {
-            console.log('response is ', response.data);
-            
+        }).then((response) => {            
             this.setState({
                 pizzas: [...response.data],
             })
-            console.log(this.state);
-            
         }).catch((error) => {
-            // console.log('error in GET, ', error);
-            
             alert('Error in GET: ', error)
         });
     }
@@ -41,7 +35,6 @@ class HomeList extends Component{
             let pizza = this.state.pizzas[i];
             let pizzaRow = <HomeListItem key={i} pizza={pizza}/>
             pizzasForDom.push(pizzaRow);
-            console.log('pizzaRow ', pizzaRow);
         }
         
         return pizzasForDom;
@@ -60,5 +53,5 @@ class HomeList extends Component{
         )
     }
 }
-// const mapReduxStoreToProps = (reduxStore) => ( {reduxStore: reduxStore});
+
 export default connect() (HomeList);

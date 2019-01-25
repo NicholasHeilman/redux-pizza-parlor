@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './../App/App.css';
 import { connect } from 'react-redux';
-// import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
 import axios from 'axios';
-import CustomerInfo from './../CustomerInfo/CustomerInfo.js';
 import CheckOutItem from '../CheckOutItem/CheckOutItem.js';
 
 
@@ -27,10 +25,7 @@ class CheckOut extends Component {
             data: info
         }).then((response) => {
             console.log(response);
-
         }).catch((error) => {
-            // console.log('error in GET, ', error);
-
             alert('Error in POST: ', error)
         });
     }
