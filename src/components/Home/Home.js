@@ -7,6 +7,7 @@ import './HomeListItem.css';
 
 class Home extends Component{
 
+<<<<<<< HEAD
     // componentDidMount(){
     //     this.refreshPizzaPage();
     // }
@@ -16,6 +17,9 @@ class Home extends Component{
         this.props.history.push('/customer-info')
         
     }
+=======
+    
+>>>>>>> feature-cards
 
     render(){
         return(

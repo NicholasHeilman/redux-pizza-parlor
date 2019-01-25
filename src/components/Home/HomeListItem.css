@@ -1,12 +1,18 @@
 
 
-.container {
+.classes-card {
     float: left;
     margin: 10px;
     width: 250px
 }
 
+<<<<<<< HEAD
 .home-container {
     float: right;
     justify-content:
 };
+=======
+/* <Button onClick={this.handleAddClick} 
+                    variant="contained" color = "primary"
+                    className={this.state.button}>Next</Button> */
+>>>>>>> feature-cards
