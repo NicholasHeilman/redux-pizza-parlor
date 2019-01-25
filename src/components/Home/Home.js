@@ -6,10 +6,6 @@ import HomeList from './HomeList';
 
 class Home extends Component{
 
-    // componentDidMount(){
-    //     this.refreshPizzaPage();
-    // }
-
     
 
     render(){

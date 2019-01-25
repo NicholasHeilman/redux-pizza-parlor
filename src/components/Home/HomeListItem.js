@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import './HomeListItem.css'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import CardActions from '@material-ui/core/CardActions';
+
 // import axios from 'axios';
 
 
@@ -16,13 +18,18 @@ class HomeListItem extends Component {
         super(props);
         this.state = {
             add: true,
-            card: {
-                minWidth: 250,},
-            title: {fontSize: 14,},
-            pos: {marginBottom: 12,},
-        };
+            card: {maxWidth: 400,},
+            media: {height: 0,
+            paddingTop: '56.25%',},
+            actions: {display: 'flex',},
+            expand: {transform: 'rotate(0deg)',
+                marginLeft: 'auto',},
+        expandOpen: {
+            transform: 'rotate(180deg)',},
+            };
         };
     
+
     addOrRemove = () => {
         if(this.state.add === true){
             return <button onClick={this.handleAddClick}>Add</button>
@@ -56,10 +63,15 @@ class HomeListItem extends Component {
 
     render(){
         return(
-            <div className="container">
+            <div className="classes-card">
                 <Card className={this.state.card}>
+                    <CardHeader
+                    title={this.props.pizza.name}/>
+                    <CardMedia className={this.state.media} 
+                    image={this.props.pizza.image_path}/>
                     <CardContent>
-                    <p>{this.props.pizza.name}</p>
+                    {/* {JSON.stringify(this.props.pizza.image_path)} */}
+                    {/* <p>{this.props.pizza.name}</p> */}
                     <p>{this.props.pizza.price}</p>
                     {this.addOrRemove()}
                     </CardContent>
