@@ -31,7 +31,7 @@ class HomeListItem extends Component {
 
         // displays remove button on pizza card 
         // once pizza is added to order.
-    addOrRemove = () => {
+    addOrRemove = () =>{
         if(this.state.add === true){
             return <Button onClick={this.handleAddClick} 
             variant="contained" color="primary">Add</Button>
