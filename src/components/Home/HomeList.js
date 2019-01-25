@@ -12,36 +12,35 @@ class HomeList extends Component{
         }
     }
 
+    // refreshes the DOM
     componentDidMount = () => {
         this.refreshPizza();
     }
 
+
+    // axios GET to get the pizzas from the database to display
     refreshPizza = () => {
     axios({
             method: 'GET',
             url: '/api/pizza'
-        }).then((response) => {
-            console.log('response is ', response.data);
-            
+        }).then((response) => {            
             this.setState({
                 pizzas: [...response.data],
             })
-            console.log(this.state);
-            
         }).catch((error) => {
-            // console.log('error in GET, ', error);
-            
             alert('Error in GET: ', error)
         });
     }
 
+    
+    // Loops through the pizzas array from the axios GET
+    // and pushes each pizza into a new array to display on DOM
     getPizzas = () => {
             const pizzasForDom = [];
         for (let i = 0; i < this.state.pizzas.length; i++) {
             let pizza = this.state.pizzas[i];
             let pizzaRow = <HomeListItem key={i} pizza={pizza}/>
             pizzasForDom.push(pizzaRow);
-            console.log('pizzaRow ', pizzaRow);
         }
         
         return pizzasForDom;
@@ -60,5 +59,5 @@ class HomeList extends Component{
         )
     }
 }
-// const mapReduxStoreToProps = (reduxStore) => ( {reduxStore: reduxStore});
+
 export default connect() (HomeList);

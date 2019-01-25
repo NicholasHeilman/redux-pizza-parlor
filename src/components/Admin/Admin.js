@@ -17,7 +17,6 @@ class Admins extends Component {
     getAdmin = () => {
         axios.get('/api/order')
         .then(response => {
-            console.log('In GET Response',response);
             this.setState({
                 customerOrders: response.data
             })
