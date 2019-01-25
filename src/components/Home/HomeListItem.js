@@ -42,6 +42,7 @@ class HomeListItem extends Component {
 
     handleAddClick = () => {
         console.log(this.props.pizza);
+        this.props.pizza.quantity = 1;
         const action = {type: 'SET_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
         this.setState({

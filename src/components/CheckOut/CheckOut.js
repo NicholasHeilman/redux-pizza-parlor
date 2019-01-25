@@ -18,12 +18,12 @@ class CheckOut extends Component {
             city: this.props.reduxStore.customerReducer.city,
             zip: this.props.reduxStore.customerReducer.zip,
             type: this.props.reduxStore.customerReducer.type,
-            total: this.props.reduxStore.totalReducer.total,
-            pizzas: this.props.reduxStore.pizzaReducer.pizzas
+            total: this.props.reduxStore.totalReducer,
+            pizzas: this.props.reduxStore.pizzaReducer
         }
         axios({
             method: 'POST',
-            url: '/api/pizza',
+            url: '/api/order',
             data: info
         }).then((response) => {
             console.log(response);

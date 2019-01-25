@@ -50,6 +50,8 @@ const customerReducer = (state = {}, action) => {
 const totalReducer = (state = 0, action) => {
     if(action.type === 'SET_PIZZA'){
         return ( Number(state) + Number(action.payload.price) );
+    }else if (action.type === 'REMOVE_PIZZA'){
+        return ( Number(state) - Number(action.payload.price) );
     }
 
     return state;
