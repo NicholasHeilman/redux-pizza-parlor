@@ -16,20 +16,11 @@ class Home extends Component{
         }   
     }
 
-    // componentDidMount(){
-    //     this.refreshPizzaPage();
-    // }
-
     nextPage = () => {
-        console.log('button clcked');
         this.props.history.push('/customer-info')
         
     }
     
-    /* <Button onClick={this.handleAddClick} 
-                    variant="contained" color = "primary"
-                    className={this.state.button}>Next</Button> */
-
     render(){
         return(
             <div>

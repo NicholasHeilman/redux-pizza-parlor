@@ -11,8 +11,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 
-// import axios from 'axios';
-
 
 class HomeListItem extends Component {
     constructor(props){
@@ -41,7 +39,6 @@ class HomeListItem extends Component {
     }
 
     handleAddClick = () => {
-        console.log(this.props.pizza);
         this.props.pizza.quantity = 1;
         const action = {type: 'SET_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
@@ -52,7 +49,6 @@ class HomeListItem extends Component {
     }
 
     handleRemoveClick = () => {
-        console.log(this.props.pizza);
         const action = {type: 'REMOVE_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
         this.setState({
