@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import CheckOutItem from '../CheckOutItem/CheckOutItem.js';
 
-
+// this component sets up the checkout page
 class CheckOut extends Component {
 
-
+    // this POST function sends customer info to the admin for viewing
     postPizza = () => {
         const info =
         {
@@ -29,12 +29,14 @@ class CheckOut extends Component {
             alert('Error in POST: ', error)
         });
     }
-
+    // this function sends the user back to the home page when the checkout button is clicked
     setCheckout = () => {
         this.postPizza();
         this.props.history.push('/');
     }
-
+    // this function displays the inputed customer data on the checkout page
+    // data is requested from the customerReducer
+    // the customerReducer has been sent a payload/data from the customer-info page
     render() {
         return (
             <div className="container">
@@ -52,11 +54,12 @@ class CheckOut extends Component {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* this map functions run through the customer data array and displays it on the table */}
                         {this.props.reduxStore.pizzaReducer.map((pizza, i) => {
-                        return (
-                            <CheckOutItem key={i} pizza={pizza} />
-                        );
-                        })} 
+                            return (
+                                <CheckOutItem key={i} pizza={pizza} />
+                            );
+                        })}
                     </tbody>
                 </table>
                 <div>
