@@ -27,7 +27,7 @@ class Home extends Component{
                 <h1>Home</h1>
                 <HomeList />
                 <div>
-                <footer>
+                <footer className="home-container">
                     <Button  onClick={this.nextPage} 
                         variant="contained" color="primary"
                         className={this.state.button}>Next</Button>
