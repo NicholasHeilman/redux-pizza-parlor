@@ -35,8 +35,8 @@ class Home extends Component{
             <div>
                 <h1>Home</h1>
                 <HomeList />
-                <div className="home-container">
-                    <Button onClick={this.nextPage} 
+                <div>
+                    <Button className="home-container" onClick={this.nextPage} 
                         variant="contained" color="primary"
                         className={this.state.button}>Next</Button>
                 {/* <button onClick={this.nextPage}>Next</button> */}

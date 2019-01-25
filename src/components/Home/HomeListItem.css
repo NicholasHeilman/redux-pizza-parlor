@@ -3,10 +3,11 @@
 .classes-card {
     float: left;
     margin: 10px;
-    width: 250px
+    width: 350px;
 }
 
 .home-container {
+    display: flex;
     float: right;
     align-items: flex-end;
     justify-content: flex-end;

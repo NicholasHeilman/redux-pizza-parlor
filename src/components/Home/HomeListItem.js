@@ -18,8 +18,8 @@ class HomeListItem extends Component {
         super(props);
         this.state = {
             add: true,
-            card: {maxWidth: 400,},
-            media: {height: 0,
+            card: {maxWidth: 4,},
+            media: {height: 40,
             paddingTop: '56.25%',},
             actions: {display: 'flex',},
             expand: {transform: 'rotate(0deg)',
@@ -72,9 +72,12 @@ class HomeListItem extends Component {
                     <CardContent>
                     {/* {JSON.stringify(this.props.pizza.image_path)} */}
                     {/* <p>{this.props.pizza.name}</p> */}
-                    <p>{this.props.pizza.price}</p>
+                    {/* <p>{this.props.pizza.price}</p> */}
+                    <img src={this.props.pizza.image_path} 
+                    alt={this.props.pizza.description} />
                     {this.addOrRemove()}
                     </CardContent>
+                    <p>{this.props.pizza.price}</p>
                 </Card>
             </div>
         )
