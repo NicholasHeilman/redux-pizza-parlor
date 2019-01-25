@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class CustomerInfo extends Component{
+    
+    //contains all information on customer
     constructor(props){
         super(props);
         this.state = {
@@ -48,6 +50,7 @@ class CustomerInfo extends Component{
     }
     ///////////////////////////////////////End state change handlers
 
+    //dispatches customer info to reducer, and sends user to checkout page
     setCustomer = () => {
         const action = { type: 'CUSTOMER_INFO',
                          payload: this.state,
@@ -56,29 +59,30 @@ class CustomerInfo extends Component{
         this.props.history.push('/check-out');
     }
 
-render(){
-    return(
-        <div>
-            <h1>Step 2: Customer Info</h1>
-            <br />
-            <input onChange={this.handleNameChange} type="text" placeholder="Name" />
-            <br />
-            <input onChange={this.handleAddressChange} type="text" placeholder="Street Address" />
-            <br />
-            <input onChange={this.handleCityChange} type="text" placeholder="City name" />
-            <br />
-            <input onChange={this.handleZipChange} type="text" placeholder="Zip Code" />
-            <br />
+    render(){
+        return(
+            <div>
+                <h1>Step 2: Customer Info</h1>
+                <br />
+                <input onChange={this.handleNameChange} type="text" placeholder="Name" />
+                <br />
+                <input onChange={this.handleAddressChange} type="text" placeholder="Street Address" />
+                <br />
+                <input onChange={this.handleCityChange} type="text" placeholder="City name" />
+                <br />
+                <input onChange={this.handleZipChange} type="text" placeholder="Zip Code" />
+                <br />
 
-            <button onClick={this.handleDeliveryClick}>Delivery</button>
-            <button onClick={this.handlePickUpClick}>Pick Up</button>
-            <p>Order for: {this.state.type}</p>
+                <button onClick={this.handleDeliveryClick}>Delivery</button>
+                <button onClick={this.handlePickUpClick}>Pick Up</button>
+                {/* Visual indicator for type of order */}
+                <p>Order for: {this.state.type}</p>
 
 
-            <button onClick={this.setCustomer}>Next</button>
-        </div>
-    )
-}
+                <button onClick={this.setCustomer}>Next</button>
+            </div>
+        )
+    }
 }
 
 export default connect()(CustomerInfo);
