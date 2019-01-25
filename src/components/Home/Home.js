@@ -16,6 +16,10 @@ class Home extends Component{
         }   
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature-pizzaDisplay
     nextPage = () => {
         this.props.history.push('/customer-info')
         

@@ -29,15 +29,20 @@ class HomeListItem extends Component {
         };
     
 
+        // displays remove button on pizza card 
+        // once pizza is added to order.
     addOrRemove = () => {
         if(this.state.add === true){
-            return <Button onClick={this.handleAddClick} variant="contained" color="primary">Add</Button>
+            return <Button onClick={this.handleAddClick} 
+            variant="contained" color="primary">Add</Button>
         }
         else{
-            return <Button onClick={this.handleRemoveClick} variant="contained" color="primary">Remove</Button>
+            return <Button onClick={this.handleRemoveClick} 
+            variant="contained" color="primary">Remove</Button>
         }
     }
 
+    // adds pizza to the order
     handleAddClick = () => {
         this.props.pizza.quantity = 1;
         const action = {type: 'SET_PIZZA', payload: this.props.pizza};
@@ -48,6 +53,7 @@ class HomeListItem extends Component {
 
     }
 
+    // Removes pizza from the order.
     handleRemoveClick = () => {
         const action = {type: 'REMOVE_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
@@ -61,6 +67,8 @@ class HomeListItem extends Component {
 
     render(){
         return(
+            // each pizza in the array from HomeList is displayed
+            //using the CardMedia in material ui.
             <div className="classes-card">
                 <Card className={this.state.card}>
                 <CardActionArea>
