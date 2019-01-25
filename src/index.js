@@ -26,13 +26,12 @@ import logger from 'redux-logger';
 
 const pizzaReducer = (state = [], action) => {
     if (action.type === 'SET_PIZZA'){
-        console.log('in pR', state);
         
         const pizzaToAdd = action.payload
         return [...state, pizzaToAdd]
     }else if (action.type === 'REMOVE_PIZZA'){
-        console.log(state);
-        return state=state.filter((pizza) => pizza.id!= action.payload.id)
+
+        return state=state.filter((pizza) => pizza.id!== action.payload.id)
         
     }
         return state;
@@ -48,6 +47,9 @@ const customerReducer = (state = {}, action) => {
 
 //Total Cost Reducer
 const totalReducer = (state = 0, action) => {
+
+    //Any time a pizza object is added or removed from the pizza Reducer
+    //the total cost is also updated based on the cost of that pizza
     if(action.type === 'SET_PIZZA'){
         return ( Number(state) + Number(action.payload.price) );
     }else if (action.type === 'REMOVE_PIZZA'){

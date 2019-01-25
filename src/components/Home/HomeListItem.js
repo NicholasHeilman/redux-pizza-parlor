@@ -8,9 +8,8 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-
-// import axios from 'axios';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Button from '@material-ui/core/Button';
 
 
 class HomeListItem extends Component {
@@ -30,17 +29,21 @@ class HomeListItem extends Component {
         };
     
 
-    addOrRemove = () => {
+        // displays remove button on pizza card 
+        // once pizza is added to order.
+    addOrRemove = () =>{
         if(this.state.add === true){
-            return <button onClick={this.handleAddClick}>Add</button>
+            return <Button onClick={this.handleAddClick} 
+            variant="contained" color="primary">Add</Button>
         }
         else{
-            return <button onClick={this.handleRemoveClick}>Remove</button>
+            return <Button onClick={this.handleRemoveClick} 
+            variant="contained" color="primary">Remove</Button>
         }
     }
 
+    // adds pizza to the order
     handleAddClick = () => {
-        console.log(this.props.pizza);
         this.props.pizza.quantity = 1;
         const action = {type: 'SET_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
@@ -50,8 +53,8 @@ class HomeListItem extends Component {
 
     }
 
+    // Removes pizza from the order.
     handleRemoveClick = () => {
-        console.log(this.props.pizza);
         const action = {type: 'REMOVE_PIZZA', payload: this.props.pizza};
         this.props.dispatch(action);
         this.setState({
@@ -64,21 +67,26 @@ class HomeListItem extends Component {
 
     render(){
         return(
+            // each pizza in the array from HomeList is displayed
+            //using the CardMedia in material ui.
             <div className="classes-card">
                 <Card className={this.state.card}>
+                <CardActionArea>
                     <CardHeader
                     title={this.props.pizza.name}/>
-                    <CardMedia className={this.state.media} 
+                    <CardMedia component="img"
+                     className={this.state.media} 
                     image={this.props.pizza.image_path}/>
                     <CardContent>
                     {/* {JSON.stringify(this.props.pizza.image_path)} */}
                     {/* <p>{this.props.pizza.name}</p> */}
                     {/* <p>{this.props.pizza.price}</p> */}
-                    <img src={this.props.pizza.image_path} 
-                    alt={this.props.pizza.description} />
+                    {/* <img src={this.props.pizza.image_path} 
+                    alt={this.props.pizza.description} /> */}
                     {this.addOrRemove()}
                     </CardContent>
                     <p>{this.props.pizza.price}</p>
+                    </CardActionArea>
                 </Card>
             </div>
         )
