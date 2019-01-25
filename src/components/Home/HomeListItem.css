@@ -6,13 +6,12 @@
     width: 250px
 }
 
-<<<<<<< HEAD
 .home-container {
     float: right;
-    justify-content:
-};
-=======
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
 /* <Button onClick={this.handleAddClick} 
                     variant="contained" color = "primary"
                     className={this.state.button}>Next</Button> */
->>>>>>> feature-cards
