@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import HomeList from './HomeList';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './HomeListItem.css';
 import '../App/App.css';
