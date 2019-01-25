@@ -8,7 +8,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
 
 // import axios from 'axios';
@@ -67,19 +67,22 @@ class HomeListItem extends Component {
         return(
             <div className="classes-card">
                 <Card className={this.state.card}>
+                <CardActionArea>
                     <CardHeader
                     title={this.props.pizza.name}/>
-                    <CardMedia className={this.state.media} 
+                    <CardMedia component="img"
+                     className={this.state.media} 
                     image={this.props.pizza.image_path}/>
                     <CardContent>
                     {/* {JSON.stringify(this.props.pizza.image_path)} */}
                     {/* <p>{this.props.pizza.name}</p> */}
                     {/* <p>{this.props.pizza.price}</p> */}
-                    <img src={this.props.pizza.image_path} 
-                    alt={this.props.pizza.description} />
+                    {/* <img src={this.props.pizza.image_path} 
+                    alt={this.props.pizza.description} /> */}
                     {this.addOrRemove()}
                     </CardContent>
                     <p>{this.props.pizza.price}</p>
+                    </CardActionArea>
                 </Card>
             </div>
         )
