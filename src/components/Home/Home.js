@@ -4,7 +4,7 @@ import HomeList from './HomeList';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import './HomeListItem.css';
-
+import '../App/App.css';
 
 class Home extends Component{
     constructor(props){
@@ -36,10 +36,12 @@ class Home extends Component{
                 <h1>Home</h1>
                 <HomeList />
                 <div>
-                    <Button className="home-container" onClick={this.nextPage} 
+                <footer>
+                    <Button  onClick={this.nextPage} 
                         variant="contained" color="primary"
                         className={this.state.button}>Next</Button>
                 {/* <button onClick={this.nextPage}>Next</button> */}
+                </footer>
                 </div>
             </div>
         )

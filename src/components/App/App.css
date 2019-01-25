@@ -51,3 +51,7 @@ th, td {
 #order-total-checkout-pg {
   float: right;
 }
+
+footer { 
+  display: block;
+}

@@ -32,7 +32,7 @@ const pizzaReducer = (state = [], action) => {
         return [...state, pizzaToAdd]
     }else if (action.type === 'REMOVE_PIZZA'){
         console.log(state);
-        return state=state.filter((pizza) => pizza.id!= action.payload.id)
+        return state=state.filter((pizza) => pizza.id!== action.payload.id)
         
     }
         return state;

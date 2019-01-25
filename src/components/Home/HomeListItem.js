@@ -9,6 +9,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
 
 // import axios from 'axios';
 
@@ -32,10 +33,10 @@ class HomeListItem extends Component {
 
     addOrRemove = () => {
         if(this.state.add === true){
-            return <button onClick={this.handleAddClick}>Add</button>
+            return <Button onClick={this.handleAddClick} variant="contained" color="primary">Add</Button>
         }
         else{
-            return <button onClick={this.handleRemoveClick}>Remove</button>
+            return <Button onClick={this.handleRemoveClick} variant="contained" color="primary">Remove</Button>
         }
     }
 
